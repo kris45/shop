@@ -1,0 +1,18 @@
+
+<div>
+  <div>Products</div>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Category</th>
+      <th>Is Avaliable</th>
+      <th>Amount</th>
+    </tr>
+      <tr app-product
+        *ngFor="let product of products"
+        [product]="product">
+      </tr>
+  </table>
+</div>
