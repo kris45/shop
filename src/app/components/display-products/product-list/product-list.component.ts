@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { Product } from './../models/product.model';
-import { ProductsService } from './../services/products.service';
+import {Component, OnInit} from '@angular/core';
+import { Product } from '../../shared/product.model';
+import { ProductsService } from '../../shared/products.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,7 +8,7 @@ import { ProductsService } from './../services/products.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
-  @Input()  products: Array<Product>;
+  products: Array<Product>;
 
   constructor(
     public productsService: ProductsService

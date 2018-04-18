@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
-import { Product } from './../models/product.model';
+import { Product } from '../../shared/product.model';
+import {ProductsService} from '../../shared/products.service';
 
 @Component({
   selector: '[app-product]',
@@ -10,15 +11,13 @@ import { Product } from './../models/product.model';
 export class ProductComponent {
 
   @Input()  product: Product;
-  constructor() { }
-  //
-  // ngOnInit() {
-  // }
+  @Output() handleBuyButton = new EventEmitter();
 
-  handleBuy(): void {
-    console.log('buy', this.product.name);
-    if (this.product.amount > 0) {
-      this.product.amount--;
-    }
+  constructor(
+    public productsService: ProductsService
+  ) { }
+
+  handleBuy() {
+    this.handleBuyButton.emit(this.product);
   }
 }
